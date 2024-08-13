@@ -53,15 +53,6 @@ const StepForm: React.FC<StepFormProps> = ({ formData, onUpdate }) => {
       case 1:
         return (
           <div>
-            
-            <input
-              type="text"
-              name="country"
-              value={formData.country}
-              onChange={handleInputChange}
-              placeholder="Country"
-              className="mb-2 p-2 w-full border border-teal-300 rounded"
-            />
             <input
               type="text"
               name="businessName"
@@ -70,6 +61,15 @@ const StepForm: React.FC<StepFormProps> = ({ formData, onUpdate }) => {
               placeholder="Business Name"
               className="mb-2 p-2 w-full border border-teal-300 rounded"
             />
+            <input
+              type="text"
+              name="country"
+              value={formData.country}
+              onChange={handleInputChange}
+              placeholder="Country"
+              className="mb-2 p-2 w-full border border-teal-300 rounded"
+            />
+            
             <input
               type="text"
               name="registrationNumber"

@@ -42,18 +42,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App min-h-screen flex flex-col bg-gray-50 p-8">
-      <div className="flex items-center justify-between w-full max-w-6xl mb-8">
-        <Logo className="h-16 w-16" />
+    <div className="App min-h-screen flex flex-col bg-gray-50 p-12">
+      <div className="flex items-center justify-between w-full max-w-6xl ">
+        <Logo className="" />
         <h1 className="text-4xl font-bold text-teal-700">
-          Business Information Form
+          Client Onboarding
         </h1>
       </div>
-      <div className="w-full max-w-6xl flex flex-wrap">
-        <div className="w-full lg:w-2/5 p-4">
+      <div className="w-full max-w flex flex-wrap">
+        <div className="w-full lg:w-2/6 p-6">
           <StepForm formData={formData} onUpdate={handleFormUpdate} />
         </div>
-        <div className="w-full lg:w-3/5 p-4">
+        <div className="w-full lg:w-4/6 p-6">
           <Preview formData={formData} />
         </div>
       </div>
