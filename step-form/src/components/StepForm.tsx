@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "./logo"; // Assume you have a Logo component
+
 
 interface BusinessUnit {
   name: string;
@@ -53,7 +53,7 @@ const StepForm: React.FC<StepFormProps> = ({ formData, onUpdate }) => {
       case 1:
         return (
           <div>
-            <Logo className="mb-4" />
+            
             <input
               type="text"
               name="country"

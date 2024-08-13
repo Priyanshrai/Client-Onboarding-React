@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StepForm from "./components/StepForm";
 import Preview from "./components/Preview";
+import Logo from "./components/logo"; // Ensure correct import path
 
 interface BusinessUnit {
   name: string;
@@ -41,10 +42,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App min-h-screen flex flex-col items-center bg-gray-50 p-8">
-      <h1 className="text-4xl font-bold text-teal-700 mb-8">
-        Business Information Form
-      </h1>
+    <div className="App min-h-screen flex flex-col bg-gray-50 p-8">
+      <div className="flex items-center justify-between w-full max-w-6xl mb-8">
+        <Logo className="h-16 w-16" />
+        <h1 className="text-4xl font-bold text-teal-700">
+          Business Information Form
+        </h1>
+      </div>
       <div className="w-full max-w-6xl flex flex-wrap">
         <div className="w-full lg:w-2/5 p-4">
           <StepForm formData={formData} onUpdate={handleFormUpdate} />

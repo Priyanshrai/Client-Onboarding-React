@@ -24,51 +24,58 @@ interface PreviewProps {
 const Preview: React.FC<PreviewProps> = ({ formData }) => {
   return (
     <div className="preview flex-1 p-6 bg-white shadow-xl rounded-lg border border-gray-200 h-full">
-      <h2 className="text-2xl font-semibold mb-6 border-b pb-2 text-teal-600">
-        Preview
-      </h2>
-      <div className="mb-6">
-        <h3 className="text-xl font-medium mb-4 text-teal-500">
-          Basic Information
-        </h3>
-        <p className="text-gray-700 mb-2">
-          Country: {formData.country || "N/A"}
-        </p>
-        <p className="text-gray-700 mb-2">
-          Business Name: {formData.businessName || "N/A"}
-        </p>
-        <p className="text-gray-700 mb-2">
-          Registration Number: {formData.registrationNumber || "N/A"}
-        </p>
-        <p className="text-gray-700 mb-2">
-          Address: {formData.address || "N/A"}
-        </p>
-        <p className="text-gray-700 mb-2">
-          Contact: {formData.contact || "N/A"}
-        </p>
+      {/* Top Section: Company Information */}
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div>
+          <p className="text-gray-700"><strong>{formData.businessName || "Business Name"}</strong></p>
+          <p className="text-gray-700">{formData.country || "Country"}</p>
+          <p className="text-gray-700">{formData.registrationNumber || "Registration Number"}</p>
+          <p className="text-gray-700">{formData.address || "Address"}</p>
+        </div>
+        <div className="text-right">
+          
+          {/* Placeholder for the logo */}
+          <div className="h-16 w-16 bg-gray-200 inline-block mt-4">Client's Logo</div>
+          <p className="text-gray-700">{formData.contact || "Contact"}</p>
+        </div>
       </div>
-      <div className="mb-6">
-        <h3 className="text-xl font-medium mb-4 text-teal-500">Settings</h3>
-        <p className="text-gray-700 mb-2">Currency: {formData.currency}</p>
-        <p className="text-gray-700 mb-2">Date Format: {formData.dateFormat}</p>
-        <p className="text-gray-700 mb-2">Time Format: {formData.timeFormat}</p>
+      
+      {/* Middle Section: Settings */}
+      <div className="grid grid-cols-2 gap-4 mb-6 border-t pt-4">
+        <div>
+          <p className="text-gray-700"><strong>Date Format:</strong> {formData.dateFormat || "mm/dd/yyyy"}</p>
+        </div>
+        <div className="text-right">
+          <p className="text-gray-700"><strong>Currency:</strong> {formData.currency || "N/A"}</p>
+          <p className="text-gray-700"><strong>Time Format:</strong> {formData.timeFormat || "12 Hrs"}</p>
+        </div>
       </div>
-      <div>
-        <h3 className="text-xl font-medium mb-4 text-teal-500">
-          Business Units
-        </h3>
+      
+      {/* Bottom Section: Business Units */}
+      <div className="border-t pt-4">
         {formData.businessUnits.map((unit, index) => (
-          <div key={index} className="mb-4 bg-teal-50 p-4 rounded-lg shadow-sm">
-            <h4 className="font-semibold text-teal-700">
-              {unit.name || `Business Unit ${index + 1}`}
-            </h4>
-            <ul className="list-disc list-inside ml-4">
-              {unit.departments.map((dept, deptIndex) => (
-                <li key={deptIndex} className="text-gray-700">
-                  {dept || `Department ${deptIndex + 1}`}
-                </li>
-              ))}
-            </ul>
+          <div key={index} className="mb-4">
+            {/* Business Unit and Location */}
+            <div className="grid grid-cols-2 mb-2">
+              <div className="text-teal-700 font-bold text-lg">
+                {`Business Unit ${index + 1}`}
+              </div>
+              <div className="text-right text-gray-500">
+                {("Location")}
+              </div>
+            </div>
+
+            {/* Departments */}
+            {unit.departments.map((dept, deptIndex) => (
+              <div key={deptIndex} className="grid grid-cols-2 mb-1">
+                <div className="text-gray-700">
+                  {`Department ${deptIndex + 1}`}
+                </div>
+                <div className="text-right text-gray-700">
+                  {dept || `Department Name`}
+                </div>
+              </div>
+            ))}
           </div>
         ))}
       </div>
